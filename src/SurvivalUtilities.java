@@ -1,7 +1,5 @@
 import events.ProjectileHit;
-import items.experience_bottle;
-import items.omlette;
-import items.pillow;
+import items.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -43,9 +41,11 @@ public class SurvivalUtilities extends JavaPlugin {
         //UberItems.putItem("empty_item", new empty_item(Material.DIAMOND, "Empty UberItem", UberRarity.COMMON,
         //        false, false, false, Collections.emptyList(), null));
 
+        // TODO add Atlas
+
         UberItems.putItem("pillow", new pillow(Utilities.getSkull("http://textures.minecraft.net/texture/3088895e90ea5899499e32a3176ecdacd88656cba734d1345175fd11f2844893"), "Pillow",
                 UberRarity.COMMON, false, false, true,
-                Collections.singletonList(new UberAbility("Well Rested", AbilityType.NONE, "When sleeping in a bed while holding this pillow, you regain health. Clear poison effect", 300)),
+                Collections.singletonList(new UberAbility("Well Rested", AbilityType.NONE, "When sleeping in a bed while holding this pillow, you regain health. Cure any active poison effects.", 300)),
                 new UberCraftingRecipe(Arrays.asList(
                         new ItemStack(Material.STRING, 8),
                         new ItemStack(Material.FEATHER, 16),
@@ -83,6 +83,43 @@ public class SurvivalUtilities extends JavaPlugin {
                         new ItemStack(Material.LAPIS_LAZULI),
                         new ItemStack(Material.LAPIS_LAZULI)), false, 1)));
 
+        // TODO add way to convert enchantments into experience bottles?
+
+        // TODO add livna (reverse anvil)
+
+        // TODO add backpack
+
+        // TODO add double backpack
+
+        // TODO add foods on a stick
+
+        UberItems.putItem("homemade_portal_frame", new homemade_portal_frame(Material.END_PORTAL_FRAME, "Homemade Portal Frame",
+                UberRarity.EPIC, true, true, false,
+                Collections.emptyList(),
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.END_STONE, 12),
+                        new ItemStack(Material.END_STONE, 12),
+                        new ItemStack(Material.END_STONE, 12),
+                        new ItemStack(Material.ENDER_PEARL, 16),
+                        new ItemStack(Material.NETHER_STAR),
+                        new ItemStack(Material.ENDER_PEARL, 16),
+                        new ItemStack(Material.END_STONE, 12),
+                        new ItemStack(Material.END_STONE, 12),
+                        new ItemStack(Material.END_STONE, 12)), false, 12)));
+
+        UberItems.putItem("crystal_ball", new crystal_ball(Utilities.getSkull("http://textures.minecraft.net/texture/5a5f29a76d1f91c165f63baac048670e7b1d37ce785a4d9c21d8c3a177b5"), "Crystal Ball",
+                UberRarity.EPIC, false, false, false,
+                Arrays.asList(new UberAbility("storage", AbilityType.NONE, "Store Experience in this orb")),
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.GLASS),
+                        new ItemStack(Material.SEA_LANTERN),
+                        new ItemStack(Material.GLASS),
+                        new ItemStack(Material.SEA_LANTERN),
+                        new ItemStack(Material.BEACON),
+                        new ItemStack(Material.SEA_LANTERN),
+                        new ItemStack(Material.GLASS),
+                        new ItemStack(Material.SEA_LANTERN),
+                        new ItemStack(Material.GLASS)), false, 1)));
 
     }
     private void registerUberMaterials() {
