@@ -1,10 +1,12 @@
-import events.ProjectileHit;
+import events.InventoryEvents;
+import events.Mobs;
 import items.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import thirtyvirus.uber.UberItems;
+import thirtyvirus.uber.UberMaterial;
 import thirtyvirus.uber.helpers.*;
 
 import java.util.Arrays;
@@ -34,12 +36,11 @@ public class SurvivalUtilities extends JavaPlugin {
         getLogger().info(getDescription().getName() + " V: " + getDescription().getVersion() + " has been disabled");
     }
     private void registerEvents() {
-        getServer().getPluginManager().registerEvents(new ProjectileHit(), this);
+        getServer().getPluginManager().registerEvents(new InventoryEvents(), this);
+        getServer().getPluginManager().registerEvents(new Mobs(), this);
     }
 
     private void registerUberItems() {
-        //UberItems.putItem("empty_item", new empty_item(Material.DIAMOND, "Empty UberItem", UberRarity.COMMON,
-        //        false, false, false, Collections.emptyList(), null));
 
         // TODO add Atlas
 
@@ -87,11 +88,38 @@ public class SurvivalUtilities extends JavaPlugin {
 
         // TODO add livna (reverse anvil)
 
-        // TODO add backpack
+        UberItems.putItem("small_backpack", new small_backpack(Utilities.getSkull("http://textures.minecraft.net/texture/2308bf5cc3e9decaf0770c3fdad1e042121cf39cc2505bbb866e18c6d23ccd0c"), "Small Backpack",
+                UberRarity.RARE, false, false, false,
+                Collections.emptyList(),
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.WHITE_WOOL, 8),
+                        new ItemStack(Material.WHITE_WOOL, 8),
+                        new ItemStack(Material.WHITE_WOOL, 8),
+                        new ItemStack(Material.WHITE_WOOL, 8),
+                        UberItems.getMaterial("enchanted_leather").makeItem(1),
+                        new ItemStack(Material.WHITE_WOOL, 8),
+                        new ItemStack(Material.WHITE_WOOL, 8),
+                        new ItemStack(Material.WHITE_WOOL, 8),
+                        new ItemStack(Material.WHITE_WOOL, 8)), false, 1)));
 
-        // TODO add double backpack
+        UberItems.putItem("big_backpack", new big_backpack(Utilities.getSkull("http://textures.minecraft.net/texture/a2bb38516b29504186e11559cd5250ae218db4ddd27ae438726c847ce6b3c98"), "Big Backpack",
+                UberRarity.EPIC, false, false, false,
+                Collections.emptyList(),
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.WHITE_WOOL, 64),
+                        UberItems.getMaterial("enchanted_leather").makeItem(1),
+                        new ItemStack(Material.WHITE_WOOL, 64),
+                        UberItems.getMaterial("enchanted_leather").makeItem(1),
+                        new ItemStack(Material.CHEST),
+                        UberItems.getMaterial("enchanted_leather").makeItem(1),
+                        new ItemStack(Material.WHITE_WOOL, 64),
+                        UberItems.getMaterial("enchanted_leather").makeItem(1),
+                        new ItemStack(Material.WHITE_WOOL, 64)), false, 1)));
 
         // TODO add foods on a stick
+
+        UberItems.putItem("calamari", new calamari(Material.COOKED_COD, "Calamari",
+                UberRarity.UNCOMMON, true, true, false, Collections.emptyList(), null));
 
         UberItems.putItem("homemade_portal_frame", new homemade_portal_frame(Material.END_PORTAL_FRAME, "Homemade Portal Frame",
                 UberRarity.EPIC, true, true, false,
@@ -109,7 +137,8 @@ public class SurvivalUtilities extends JavaPlugin {
 
         UberItems.putItem("crystal_ball", new crystal_ball(Utilities.getSkull("http://textures.minecraft.net/texture/5a5f29a76d1f91c165f63baac048670e7b1d37ce785a4d9c21d8c3a177b5"), "Crystal Ball",
                 UberRarity.EPIC, false, false, false,
-                Arrays.asList(new UberAbility("storage", AbilityType.NONE, "Store Experience in this orb")),
+                Arrays.asList(new UberAbility("Mana Battery", AbilityType.LEFT_CLICK, "Deposit an experience level into the crystal ball, crouch to deposit all."),
+                        new UberAbility("Mana Discharge", AbilityType.RIGHT_CLICK, "Withdraw an experience level from the crystal ball, crouch to withdraw all.")),
                 new UberCraftingRecipe(Arrays.asList(
                         new ItemStack(Material.GLASS),
                         new ItemStack(Material.SEA_LANTERN),
@@ -123,9 +152,18 @@ public class SurvivalUtilities extends JavaPlugin {
 
     }
     private void registerUberMaterials() {
-        //UberItems.putMaterial("thumbnail", new UberMaterial(Material.GOLDEN_APPLE,
-        //        "Titan Apple", UberRarity.MYTHIC, true, false, false,
-        //        "" + ChatColor.GRAY + ChatColor.ITALIC + "look at what they /newline " + ChatColor.ITALIC + "need to mimic a /newline " + ChatColor.ITALIC + "fraction of our power",
-        //        null));
+
+        UberItems.putMaterial("enchanted_leather", new UberMaterial(Material.LEATHER, "Enchanted Leather", UberRarity.UNCOMMON, true, true, false, "",
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.LEATHER, 64),
+                        new ItemStack(Material.LEATHER, 64),
+                        new ItemStack(Material.LEATHER, 64),
+                        new ItemStack(Material.LEATHER, 64),
+                        new ItemStack(Material.LEATHER, 64),
+                        new ItemStack(Material.LEATHER, 64),
+                        new ItemStack(Material.LEATHER, 64),
+                        new ItemStack(Material.LEATHER, 64),
+                        new ItemStack(Material.LEATHER, 64)), false, 1)));
+
     }
 }
