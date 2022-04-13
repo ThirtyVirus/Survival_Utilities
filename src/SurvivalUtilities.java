@@ -1,5 +1,5 @@
 import events.InventoryEvents;
-import events.Mobs;
+import events.UberEvent;
 import items.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -37,7 +37,7 @@ public class SurvivalUtilities extends JavaPlugin {
     }
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(new InventoryEvents(), this);
-        getServer().getPluginManager().registerEvents(new Mobs(), this);
+        getServer().getPluginManager().registerEvents(new UberEvent(), this);
     }
 
     private void registerUberItems() {
@@ -149,6 +149,31 @@ public class SurvivalUtilities extends JavaPlugin {
                         new ItemStack(Material.GLASS),
                         new ItemStack(Material.SEA_LANTERN),
                         new ItemStack(Material.GLASS)), false, 1)));
+
+        // TODO add item that returns player to death point
+
+        // TODO add multi-bench that swaps between handheld versions of crafting table, furnace, anvil, etc...
+
+        UberItems.putItem("throwing_torch", new throwing_torch(Material.TORCH, "Throwing Torch", UberRarity.COMMON,
+                true, true, false, Collections.emptyList(),
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.TORCH),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.STICK),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.STICK),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.AIR)), false, 1)));
+
+        // TODO add jerky?
+
+        // TODO add go-cart
+
+        // TODO add hang glider
+
+        // TODO add metal detector
 
     }
     private void registerUberMaterials() {

@@ -8,7 +8,7 @@ import thirtyvirus.uber.UberItems;
 
 import java.util.Random;
 
-public class Mobs implements Listener {
+public class UberEvent implements Listener {
 
     private Random rand = new Random();
 
