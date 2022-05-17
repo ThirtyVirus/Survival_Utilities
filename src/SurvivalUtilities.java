@@ -150,7 +150,20 @@ public class SurvivalUtilities extends JavaPlugin {
                         new ItemStack(Material.SEA_LANTERN),
                         new ItemStack(Material.GLASS)), false, 1)));
 
-        // TODO add item that returns player to death point
+        UberItems.putItem("soul_anchor", new soul_anchor(Utilities.getSkull("https://textures.minecraft.net/texture/38be8abd66d09a58ce12d377544d726d25cad7e979e8c2481866be94d3b32f"), "Soul Anchor",
+                UberRarity.LEGENDARY, false, true, false,
+                Arrays.asList(new UberAbility("Soulbound", AbilityType.NONE, "Stores location on death, returns to the player inventory after respawn"),
+                        new UberAbility("Do-Over", AbilityType.RIGHT_CLICK, "Return to your previous death point")),
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ENDER_PEARL, 16),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ENDER_PEARL, 16),
+                        new ItemStack(Material.CHORUS_FRUIT),
+                        new ItemStack(Material.ENDER_PEARL, 16),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ENDER_PEARL, 16),
+                        new ItemStack(Material.AIR)), false, 1)));
 
         // TODO add multi-bench that swaps between handheld versions of crafting table, furnace, anvil, etc...
 
