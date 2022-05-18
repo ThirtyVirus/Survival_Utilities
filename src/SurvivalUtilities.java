@@ -165,7 +165,19 @@ public class SurvivalUtilities extends JavaPlugin {
                         new ItemStack(Material.ENDER_PEARL, 16),
                         new ItemStack(Material.AIR)), false, 1)));
 
-        // TODO add multi-bench that swaps between handheld versions of crafting table, furnace, anvil, etc...
+        UberItems.putItem("multi_bench", new multi_bench(Material.OBSIDIAN, "Multi-Bench",
+                UberRarity.UNFINISHED, false, false, false,
+                Collections.singletonList(new UberAbility("asd", AbilityType.LEFT_CLICK, "asdasd")),
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.STICK),
+                        new ItemStack(Material.OBSIDIAN, 16),
+                        new ItemStack(Material.STICK),
+                        new ItemStack(Material.OBSIDIAN, 16),
+                        new ItemStack(Material.REDSTONE_BLOCK, 32),
+                        new ItemStack(Material.OBSIDIAN, 16),
+                        new ItemStack(Material.STICK),
+                        new ItemStack(Material.OBSIDIAN, 16),
+                        new ItemStack(Material.STICK)), false, 1)));
 
         UberItems.putItem("throwing_torch", new throwing_torch(Material.TORCH, "Throwing Torch", UberRarity.COMMON,
                 true, true, false, Collections.emptyList(),
@@ -190,6 +202,66 @@ public class SurvivalUtilities extends JavaPlugin {
 
     }
     private void registerUberMaterials() {
+
+        UberItems.putMaterial("enchanted_crafting_table", new UberMaterial(Material.CRAFTING_TABLE, "Enchanted Crafting Table", UberRarity.UNCOMMON, true, false, false, "",
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.CRAFTING_TABLE, 32),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.CRAFTING_TABLE, 32),
+                        new ItemStack(Material.CRAFTING_TABLE, 32),
+                        new ItemStack(Material.CRAFTING_TABLE, 32),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.CRAFTING_TABLE, 32),
+                        new ItemStack(Material.AIR)), false, 1)));
+
+        UberItems.putMaterial("enchanted_furnace", new UberMaterial(Material.FURNACE, "Enchanted Furnace", UberRarity.UNCOMMON, true, false, false, "",
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.FURNACE, 32),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.FURNACE, 32),
+                        new ItemStack(Material.FURNACE, 32),
+                        new ItemStack(Material.FURNACE, 32),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.FURNACE, 32),
+                        new ItemStack(Material.AIR)), false, 1)));
+
+        UberItems.putMaterial("enchanted_brewing_stand", new UberMaterial(Material.BREWING_STAND, "Enchanted Brewing Stand", UberRarity.UNCOMMON, true, false, false, "",
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.BREWING_STAND, 32),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.BREWING_STAND, 32),
+                        new ItemStack(Material.BREWING_STAND, 32),
+                        new ItemStack(Material.BREWING_STAND, 32),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.BREWING_STAND, 32),
+                        new ItemStack(Material.AIR)), false, 1)));
+
+        UberItems.putMaterial("enchanted_anvil", new UberMaterial(Material.ANVIL, "Enchanted Anvil", UberRarity.UNCOMMON, true, false, false, "",
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ANVIL, 4),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ANVIL, 4),
+                        new ItemStack(Material.ANVIL, 4),
+                        new ItemStack(Material.ANVIL, 4),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ANVIL, 4),
+                        new ItemStack(Material.AIR)), false, 1)));
+
+        UberItems.putMaterial("enchanted_enchanting_table", new UberMaterial(Material.ENCHANTING_TABLE, "Enchanted Enchanting Table", UberRarity.UNCOMMON, true, false, false, "",
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ENCHANTING_TABLE, 4),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ENCHANTING_TABLE, 4),
+                        new ItemStack(Material.ENCHANTING_TABLE, 4),
+                        new ItemStack(Material.ENCHANTING_TABLE, 4),
+                        new ItemStack(Material.AIR),
+                        new ItemStack(Material.ENCHANTING_TABLE, 4),
+                        new ItemStack(Material.AIR)), false, 1)));
 
         UberItems.putMaterial("enchanted_leather", new UberMaterial(Material.LEATHER, "Enchanted Leather", UberRarity.UNCOMMON, true, true, false, "",
                 new UberCraftingRecipe(Arrays.asList(
