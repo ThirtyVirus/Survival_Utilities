@@ -116,7 +116,19 @@ public class SurvivalUtilities extends JavaPlugin {
                         UberItems.getMaterial("enchanted_leather").makeItem(1),
                         new ItemStack(Material.WHITE_WOOL, 64)), false, 1)));
 
-        // TODO add foods on a stick
+        UberItems.putItem("kebab", new kebab(Utilities.getSkull("https://textures.minecraft.net/texture/31e9359292be8de0e6467bba69260c4c7a8c1bfc08ae09bae78b6fcd612b7ca3"), "Kebab",
+                UberRarity.RARE, true, true, false,
+                Collections.emptyList(),
+                new UberCraftingRecipe(Arrays.asList(
+                        new ItemStack(Material.COOKED_COD),
+                        new ItemStack(Material.STICK),
+                        new ItemStack(Material.COOKED_MUTTON),
+                        new ItemStack(Material.COOKED_BEEF),
+                        new ItemStack(Material.STICK),
+                        new ItemStack(Material.COOKED_PORKCHOP),
+                        new ItemStack(Material.COOKED_RABBIT),
+                        new ItemStack(Material.STICK),
+                        new ItemStack(Material.COOKED_CHICKEN)), false, 3)));
 
         UberItems.putItem("calamari", new calamari(Material.COOKED_COD, "Calamari",
                 UberRarity.UNCOMMON, true, true, false, Collections.emptyList(), null));
@@ -167,7 +179,7 @@ public class SurvivalUtilities extends JavaPlugin {
 
         UberItems.putItem("multi_bench", new multi_bench(Material.OBSIDIAN, "Multi-Bench",
                 UberRarity.UNFINISHED, false, false, false,
-                Collections.singletonList(new UberAbility("asd", AbilityType.LEFT_CLICK, "asdasd")),
+                Collections.singletonList(new UberAbility("Ultimate Multitool", AbilityType.LEFT_CLICK, "Swap between various utility blocks")),
                 new UberCraftingRecipe(Arrays.asList(
                         new ItemStack(Material.STICK),
                         new ItemStack(Material.OBSIDIAN, 16),
